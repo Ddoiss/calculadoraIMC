@@ -102,16 +102,34 @@
 
 // }
 
-let calcular = document.querySelector('calcular')
+// let calcular = document.querySelector('calcular')
 
 function imc() {
-
+    let resultado = document.querySelector('.text')
     let nome = document.querySelector('#nome').value
     let altura = document.querySelector('#altura').value
     let peso = document.querySelector('#peso').value
-    let resultado = document.querySelector('.text')
 
-    if (nome !== '' && altura !== '' && peso !== '') {
+
+    resultado.style.color="black"
+
+    
+    if (nome.length === 0) {
+        resultado.innerHTML = 'Você precisa preencher o campo nome'
+        return ;
+    }
+
+    if (altura.length === 0) {
+        resultado.innerHTML = 'Você precisa preencher o campo altura'
+        return ;
+    }
+
+    if (peso.length === 0) {
+        resultado.innerHTML = 'Você precisa preencher o campo peso'
+        return ;
+    }
+
+    
 
         let valorIMC = (peso / (altura * altura)).toFixed(1)
         let tipoIMC = ""
@@ -131,8 +149,7 @@ function imc() {
         }
         resultado.style.color="black"
         resultado.innerHTML = `${nome} seu IMC é${valorIMC} e você está ${tipoIMC}`
-    }else {
-    resultado.innerHTML = "Preencha todos os campos!"
+    
 }
 }
     
